@@ -6,22 +6,11 @@ import {
   MsalInterceptor,
   MsalModule,
 } from '@azure/msal-angular';
-import { Configuration } from 'msal';
-import { environment } from '../environments/environment';
+import { msalConfiguration } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopPageComponent } from './top-page/top-page.component';
 
-const msalConfig: Configuration = {
-  auth: {
-    clientId: environment.msalClientId,
-    authority: environment.msalAuthority,
-    redirectUri: environment.msalRedirectUri,
-  },
-  cache: {
-    cacheLocation: 'localStorage',
-  },
-};
 const msalAngularConfig: MsalAngularConfiguration = {
   popUp: false,
 };
@@ -31,7 +20,7 @@ const msalAngularConfig: MsalAngularConfiguration = {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MsalModule.forRoot(msalConfig, msalAngularConfig),
+    MsalModule.forRoot(msalConfiguration, msalAngularConfig),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: MsalInterceptor, multi: true },

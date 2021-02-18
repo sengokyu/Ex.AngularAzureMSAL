@@ -1,12 +1,21 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+import { Configuration } from 'msal';
 
 export const environment = {
   production: false,
-  msalClientId: '',
-  msalAuthority: '',
-  msalRedirectUri: '',
+};
+
+export const msalConfiguration: Configuration = {
+  auth: {
+    clientId: '037bbfc8-748a-497e-945c-db0451ca53c3',
+    authority: 'https://login.microsoftonline.com/common',
+    redirectUri: 'http://localhost:4200/',
+  },
+  cache: {
+    cacheLocation: 'localStorage',
+  },
 };
 
 /*
