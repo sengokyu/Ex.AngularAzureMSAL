@@ -10,6 +10,7 @@ import { Configuration } from 'msal';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TopPageComponent } from './top-page/top-page.component';
 
 const msalConfig: Configuration = {
   auth: {
@@ -26,7 +27,7 @@ const msalAngularConfig: MsalAngularConfiguration = {
 };
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TopPageComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
